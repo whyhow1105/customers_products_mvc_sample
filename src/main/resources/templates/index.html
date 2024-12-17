@@ -1,0 +1,12 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head></head>
+	<body>
+		<div style="font-size: 20px">Welcome to Customers Products :)</div>
+		<form th:action="@{/customers/getAllCustomers}" method="POST">
+			<input type="submit" value="Customers" />
+		</form>
+		<form th:action="@{/products/getAllProducts}" method="POST">
+			<input type="submit" value="Products" />
+		</form>
+	</body>
+</html>

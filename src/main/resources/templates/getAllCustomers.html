@@ -1,0 +1,28 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head></head>
+	<body>
+		<div style="font-size: 20px">Welcome to List of Customers :)</div>
+		<div>
+			<table>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Office Email</th>
+					<th>Personal Email</th>
+					<th>Edit</th>
+				</tr>
+				<tr th:each="ob:${list}">
+					<td th:text=${ob.firstName}></td>
+					<td th:text=${ob.lastName}></td>
+					<td th:text=${ob.officeEmail}></td>
+					<td th:text=${ob.personalEmail}></td>
+					<td>
+						<a th:href="@{/customers/edit(id=${ob.id})}">EDIT</a>
+					</td>
+				</tr>
+			</table>
+			<a th:href="@{/customers/add}">Add Customer</a> 
+			<a th:href="@{/}">Go to Home</a>
+		</div>
+	</body>
+</html>

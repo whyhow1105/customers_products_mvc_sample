@@ -1,0 +1,71 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head></head>
+	<body>
+		<div style="font-size: 20px">Edit Customer :)</div>
+            <form th:action="@{/customers/update}" method="POST" id="customersForm" th:object="${customer}">
+                <div class="row" style="display:none">
+                    <div class="col-2">
+                        <label for="id">ID</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{id}" class="form-control" />
+                    </div>
+                </div>
+				<div class="row">
+                    <div class="col-2">
+                        <label for="firstName">FIRST NAME</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{firstName}" class="form-control" />
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="lastName">LAST NAME</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{lastName}" class="form-control"/>
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="officeEmail">OFFICE EMAIL</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{officeEmail}" class="form-control"/>
+                    </div>
+                </div><br/>
+				<div class="row">
+                    <div class="col-2">
+                        <label for="personalEmail">PERSONAL EMAIL</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" th:field="*{personalEmail}" class="form-control"/>
+                    </div>
+                </div><br/>
+				<div class="row">
+					<div>
+						<b>FAMILY MEMBERS</b>
+					</div>
+					<table>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+						<tr th:each="ob:${familyMembers}">
+							<td><input type="text" th:field="*{ob.firstName}" class="form-control"/></td>
+							<td><input type="text" th:field="*{ob.lastName}" class="form-control"/></td>
+						</tr>
+					</table>
+				</div>
+                <button type="submit" class="btn btn-success">Update</button>
+            </form>
+			<form th:action="@{/customers/getAllCustomers}" method="POST">
+				<input type="submit" value="Show All Customers" />
+			</form>
+        </div>
+		<div th:if="${message!=null}"  class="card-footer bg-white text-info">
+			<span th:text="${message}"></span>
+		</div>
+	</body>
+</html>

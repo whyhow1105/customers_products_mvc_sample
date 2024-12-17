@@ -1,0 +1,26 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head></head>
+	<body>
+		<div style="font-size: 20px">Welcome to List of Products :)</div>
+		<div>
+			<table>
+				<tr>
+					<th>Book Title</th>
+					<th>Book Price</th>
+					<th>Book Quantity</th>
+					<th>Edit</th>
+				</tr>
+				<tr th:each="ob:${list}">
+					<td th:text=${ob.bookTitle}></td>
+					<td th:text=${ob.bookPrice}></td>
+					<td th:text=${ob.bookQuantity}></td>
+					<td>
+						<a th:href="@{/products/edit(id=${ob.id})}">EDIT</a>
+					</td>
+				</tr>
+			</table>
+			<a th:href="@{/products/add}">Add Product</a> 
+			<a th:href="@{/}">Go to Home</a>
+		</div>
+	</body>
+</html>

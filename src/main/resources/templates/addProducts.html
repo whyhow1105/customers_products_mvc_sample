@@ -1,0 +1,43 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head></head>
+	<body>
+		<div style="font-size: 20px">Add new Product :)</div>
+			<form th:action="@{/products/save}" method="POST" id="productsForm">
+				<div class="row">
+					<div class="col-2">
+						<label for="bookTitle"><b>BOOK TITLE</b></label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="bookTitle" id="bookTitle"
+							class="form-control" />
+					</div>
+				</div> <br/>
+				<div class="row">
+					<div class="col-2">
+						<label for="bookPrice"><b>BOOK PRICE</b></label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="bookPrice" id="bookPrice"
+							class="form-control" />
+					</div>
+				</div><br/>
+				<div class="row">
+					<div class="col-2">
+						<label for="bookQuantity"><b>BOOK QUANTITY</b></label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="bookQuantity" id="bookQuantity"
+							class="form-control" />
+					</div>
+				</div> <br/>
+				<button type="submit" class="btn btn-success">Save </button>
+			</form>
+			<form th:action="@{/products/getAllProducts}" method="POST">
+				<input type="submit" value="Show All Products" />
+			</form>
+		</div>
+		<div th:if="${message!=null}"  class="card-footer bg-white text-info">
+			<span th:text="${message}"></span>
+		</div>
+	</body>
+</html>
